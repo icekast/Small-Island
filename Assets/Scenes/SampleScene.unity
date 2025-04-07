@@ -220,7 +220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104, y: 122}
+  m_AnchoredPosition: {x: 891.04486, y: 137.02242}
   m_SizeDelta: {x: 163.9103, y: 31.9552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220766373
@@ -1122,8 +1122,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -219, y: 246}
-  m_SizeDelta: {x: -1087.1449, y: -601.4795}
+  m_AnchoredPosition: {x: 544.0925, y: 300.23978}
+  m_SizeDelta: {x: -1088.1449, y: -600.4795}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1735115868
 MonoBehaviour:
@@ -1303,7 +1303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fc8eabd243e3343a5cf8ce6ecc8843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableSeeds: []
+  availableSeeds:
+  - seedName: 
+    plantPrefab: {fileID: 0}
+    cost: 0
+    growTime: 0
+    icon: {fileID: 0}
   cropSellPrice: 20
 --- !u!4 &2080434857
 Transform:
