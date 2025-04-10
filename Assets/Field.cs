@@ -5,32 +5,32 @@ public class Field : MonoBehaviour
     private bool isPlanted = false;
     private Plant currentPlant;
 
-    public void PlantSeed(Seed seed)
+    public void PlantSeed(InventoryItem seedItem)
     {
-        if (isPlanted) return;
+        if (isPlanted || !seedItem.IsSeed) return;
 
-        GameObject plantGO = Instantiate(seed.plantPrefab, transform.position, Quaternion.identity);
+        GameObject plantGO = Instantiate(seedItem.plantPrefab, transform.position, Quaternion.identity);
         currentPlant = plantGO.GetComponent<Plant>();
-        currentPlant.Init(seed.growTime, this);
+        currentPlant.Init(seedItem.growTime, this);
         isPlanted = true;
-    }
-
-    public void ClearField()
-    {
-        isPlanted = false;
-        currentPlant = null;
     }
 
     public void TryPlantFromInventory(string seedName, Inventory inventory)
     {
         if (!isPlanted && inventory.HasItem(seedName))
         {
-            Seed seed = inventory.ownedSeeds.Find(s => s.seedName == seedName);
-            if (seed != null)
+            InventoryItem seedItem = inventory.GetSeed(seedName);
+            if (seedItem != null)
             {
                 inventory.RemoveItem(seedName);
-                PlantSeed(seed);
+                PlantSeed(seedItem);
             }
         }
+    }
+
+    public void ClearField()
+    {
+        isPlanted = false;
+        currentPlant = null;
     }
 }

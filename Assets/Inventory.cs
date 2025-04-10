@@ -4,25 +4,27 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public int money = 100;
-    public List<Seed> ownedSeeds = new List<Seed>();
     public List<InventoryItem> items = new List<InventoryItem>();
 
-    public void AddItem(string name, ItemType type, Sprite icon, int amount = 1)
+    public void AddItem(InventoryItem newItem, int amount = 1)
     {
-        InventoryItem existing = items.Find(i => i.itemName == name);
+        InventoryItem existing = items.Find(i => i.itemName == newItem.itemName);
         if (existing != null)
         {
             existing.quantity += amount;
         }
         else
         {
-            items.Add(new InventoryItem
+            var copy = new InventoryItem()
             {
-                itemName = name,
+                itemName = newItem.itemName,
+                type = newItem.type,
+                icon = newItem.icon,
                 quantity = amount,
-                type = type,
-                icon = icon
-            });
+                plantPrefab = newItem.plantPrefab,
+                growTime = newItem.growTime
+            };
+            items.Add(copy);
         }
     }
 
@@ -39,14 +41,14 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public int GetItemCount(string name)
+    public InventoryItem GetSeed(string seedName)
     {
-        InventoryItem item = items.Find(i => i.itemName == name);
-        return item != null ? item.quantity : 0;
+        return items.Find(i => i.itemName == seedName && i.IsSeed);
     }
 
     public bool HasItem(string name, int amount = 1)
     {
-        return GetItemCount(name) >= amount;
+        InventoryItem item = items.Find(i => i.itemName == name);
+        return item != null && item.quantity >= amount;
     }
 }

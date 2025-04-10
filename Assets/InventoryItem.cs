@@ -4,13 +4,13 @@ using UnityEngine;
 public class InventoryItem
 {
     public string itemName;
-    public Sprite icon;
-    public int quantity;
     public ItemType type;
-}
+    public Sprite icon;
+    public int quantity = 1;
 
-public enum ItemType
-{
-    Seed,
-    Crop
+    // Специфичные для семян параметры
+    public GameObject plantPrefab;  // Для семян
+    public float growTime;          // Для семян
+
+    public bool IsSeed => plantPrefab != null;
 }

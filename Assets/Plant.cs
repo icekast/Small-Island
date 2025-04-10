@@ -1,13 +1,20 @@
 using UnityEngine;
-using System.Collections;
 
 public class Plant : MonoBehaviour
 {
+    [System.Serializable]
+    public class HarvestResult
+    {
+        public InventoryItem item;
+        public int amount = 1;
+    }
+
+    public HarvestResult harvestResult;
+
     private float growTime;
     private Field parentField;
     private bool isReady = false;
 
-    // Метод для инициализации растения
     public void Init(float growTime, Field field)
     {
         this.growTime = growTime;
@@ -15,28 +22,20 @@ public class Plant : MonoBehaviour
         StartCoroutine(Grow());
     }
 
-    // Корутин для роста растения
     IEnumerator Grow()
     {
         yield return new WaitForSeconds(growTime);
         isReady = true;
-        // Здесь можно сменить спрайт растения, чтобы показать, что оно созрело
-        // Например: GetComponent<SpriteRenderer>().sprite = newSprite;
+        // Визуальные изменения созревшего растения
     }
 
-    // Метод для сбора урожая
-    public bool Harvest()
+    public bool Harvest(Inventory inventory)
     {
-        if (!isReady) return false;  // Если растение не готово — не собираем
+        if (!isReady || inventory == null) return false;
 
-        // Ищем инвентарь и добавляем предмет (например, "Tomato")
-        Inventory inventory = FindObjectOfType<Inventory>();
-        inventory.AddItem("Tomato", ItemType.Crop, null, 1); // Пример
-
-        // Уничтожаем растение и очищаем поле
+        inventory.AddItem(harvestResult.item, harvestResult.amount);
         Destroy(gameObject);
         parentField.ClearField();
-
         return true;
     }
 }
