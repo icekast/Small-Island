@@ -27,10 +27,6 @@ public class InventoryUI : MonoBehaviour
             slotGO.GetComponentInChildren<Image>().sprite = item.icon;
             slotGO.GetComponentInChildren<Text>().text = item.quantity.ToString();
 
-            DragItem dragItem = slotGO.GetComponent<DragItem>();
-            dragItem.Setup(item, inventory, this);
-
-            slotGO.GetComponent<ItemTooltipTrigger>().Setup(item);
             slotInstances.Add(slotGO);
         }
     }
