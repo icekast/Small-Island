@@ -1,13 +1,6 @@
 using UnityEngine;
 
 [System.Serializable]
-public enum ItemType
-{
-    Seed,
-    Crop,
-    Tool,
-    Resource
-}
 public class InventoryItem
 {
     public string itemName;
