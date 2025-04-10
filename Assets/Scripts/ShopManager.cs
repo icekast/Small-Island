@@ -2,30 +2,27 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    // Заменяем массив Seed на InventoryItem
-    public InventoryItem[] availableSeeds;
+    public string[] availableSeedIDs;
     public int cropSellPrice = 20;
 
     public bool BuySeed(int index, Inventory inventory)
     {
-        // Проверяем валидность индекса
-        if (index < 0 || index >= availableSeeds.Length)
+        if (index < 0 || index >= availableSeedIDs.Length)
             return false;
 
-        InventoryItem seed = availableSeeds[index];
+        string seedID = availableSeedIDs[index];
+        InventoryItem seed = ItemsDatabase.Instance.CreateItemInstance(seedID);
 
-        // Проверяем, что это действительно семя
         if (!seed.IsSeed)
         {
-            Debug.LogError($"Item {seed.itemName} is not a seed!");
+            Debug.LogError($"Item {seed.displayName} is not a seed!");
             return false;
         }
 
         if (inventory.money >= seed.cost)
         {
             inventory.money -= seed.cost;
-            // Используем новый метод AddItem
-            inventory.AddItem(seed, 1);
+            inventory.AddItem(seedID, 1);
             return true;
         }
         return false;
@@ -36,22 +33,20 @@ public class ShopManager : MonoBehaviour
         if (inventory == null) return;
 
         int totalValue = 0;
+        var itemsCopy = inventory.GetAllItems();
 
-        // Безопасное удаление через обратный цикл
-        for (int i = inventory.items.Count - 1; i >= 0; i--)
+        foreach (var item in itemsCopy)
         {
-            var item = inventory.items[i];
             if (item.type == ItemType.Crop)
             {
                 totalValue += item.quantity * cropSellPrice;
-                inventory.RemoveItem(item.itemName, item.quantity);
+                inventory.RemoveItem(item.itemID, item.quantity);
             }
         }
 
         if (totalValue > 0)
         {
             inventory.money += totalValue;
-            FindObjectOfType<InventoryUI>()?.RefreshUI();
         }
     }
 }

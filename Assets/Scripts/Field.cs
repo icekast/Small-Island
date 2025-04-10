@@ -2,30 +2,26 @@ using UnityEngine;
 
 public class Field : MonoBehaviour
 {
-    private bool isPlanted = false;
     private Plant currentPlant;
+    private bool isPlanted = false;
 
-    public void PlantSeed(InventoryItem seedItem)
+    public bool PlantSeed(InventoryItem seedItem)
     {
-        if (isPlanted || !seedItem.IsSeed) return;
+        if (isPlanted || !seedItem.IsSeed || seedItem.plantPrefab == null)
+            return false;
 
-        GameObject plantGO = Instantiate(seedItem.plantPrefab, transform.position, Quaternion.identity);
-        currentPlant = plantGO.GetComponent<Plant>();
-        currentPlant.Init(seedItem.growTime, this);
-        isPlanted = true;
-    }
+        GameObject plantObj = Instantiate(seedItem.plantPrefab, transform.position, Quaternion.identity);
+        currentPlant = plantObj.GetComponent<Plant>();
 
-    public void TryPlantFromInventory(string seedName, Inventory inventory)
-    {
-        if (!isPlanted && inventory.HasItem(seedName))
+        if (currentPlant != null)
         {
-            InventoryItem seedItem = inventory.GetSeed(seedName);
-            if (seedItem != null)
-            {
-                inventory.RemoveItem(seedName);
-                PlantSeed(seedItem);
-            }
+            currentPlant.Init(seedItem.growTime, this);
+            isPlanted = true;
+            return true;
         }
+
+        Destroy(plantObj);
+        return false;
     }
 
     public void ClearField()
@@ -33,4 +29,6 @@ public class Field : MonoBehaviour
         isPlanted = false;
         currentPlant = null;
     }
+
+    public bool IsPlanted => isPlanted;
 }

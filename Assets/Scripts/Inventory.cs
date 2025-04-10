@@ -1,54 +1,80 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
-    public int money = 100;
-    public List<InventoryItem> items = new List<InventoryItem>();
+    [Header("Settings")]
+    [SerializeField] private int initialCapacity = 20;
+    [SerializeField] private bool allowStacking = true;
+    public int money;
 
-    public void AddItem(InventoryItem newItem, int amount = 1)
+    [Header("Events")]
+    public UnityEvent onInventoryChanged;
+
+    private List<InventoryItem> items = new List<InventoryItem>();
+
+    public bool AddItem(string itemID, int amount = 1)
     {
-        InventoryItem existing = items.Find(i => i.itemName == newItem.itemName);
-        if (existing != null)
+        if (amount <= 0) return false;
+
+        if (ItemsDatabase.Instance == null)
         {
-            existing.quantity += amount;
+            Debug.LogError("ItemsDatabase not initialized!");
+            return false;
+        }
+
+        InventoryItem template = ItemsDatabase.Instance.CreateItemInstance(itemID);
+        if (template == null)
+        {
+            Debug.LogWarning($"Item {itemID} not found in database");
+            return false;
+        }
+
+        if (allowStacking && template.IsStackable)
+        {
+            InventoryItem existing = items.Find(i => i.itemID == itemID);
+            if (existing != null)
+            {
+                existing.quantity += amount;
+                onInventoryChanged.Invoke();
+                return true;
+            }
+        }
+
+        if (items.Count >= initialCapacity)
+        {
+            Debug.LogWarning("Inventory is full!");
+            return false;
+        }
+
+        InventoryItem newItem = template.Clone();
+        newItem.quantity = amount;
+        items.Add(newItem);
+        onInventoryChanged.Invoke();
+        return true;
+    }
+
+    public bool RemoveItem(string itemID, int amount = 1)
+    {
+        InventoryItem item = items.Find(i => i.itemID == itemID);
+        if (item == null) return false;
+
+        if (item.quantity > amount)
+        {
+            item.quantity -= amount;
         }
         else
         {
-            var copy = new InventoryItem()
-            {
-                itemName = newItem.itemName,
-                type = newItem.type,
-                icon = newItem.icon,
-                quantity = amount,
-                plantPrefab = newItem.plantPrefab,
-                growTime = newItem.growTime
-            };
-            items.Add(copy);
+            items.Remove(item);
         }
+
+        onInventoryChanged.Invoke();
+        return true;
     }
 
-    public bool RemoveItem(string name, int amount = 1)
-    {
-        InventoryItem existing = items.Find(i => i.itemName == name);
-        if (existing != null && existing.quantity >= amount)
-        {
-            existing.quantity -= amount;
-            if (existing.quantity <= 0)
-                items.Remove(existing);
-            return true;
-        }
-        return false;
-    }
-
-    public InventoryItem GetSeed(string seedName)
-    {
-        return items.Find(i => i.itemName == seedName && i.IsSeed);
-    }
-
-    public bool HasItem(string name, int amount = 1)
-    {
-        InventoryItem item = items.Find(i => i.itemName == name);
-        return item != null && item.quantity >= amount;
-    }
+    public List<InventoryItem> GetAllItems() => new List<InventoryItem>(items);
+    public InventoryItem GetItem(string itemID) => items.Find(i => i.itemID == itemID);
+    public int GetItemCount(string itemID) => GetItem(itemID)?.quantity ?? 0;
+    public bool HasItem(string itemID, int minAmount = 1) => GetItemCount(itemID) >= minAmount;
 }

@@ -3,15 +3,8 @@ using System.Collections;
 
 public class Plant : MonoBehaviour
 {
-    [System.Serializable]
-    public class HarvestResult
-    {
-        public InventoryItem item;
-        public int amount = 1;
-    }
-
-    public HarvestResult harvestResult;
-
+    public string cropItemID;
+    public int harvestAmount = 1;
     private float growTime;
     private Field parentField;
     private bool isReady = false;
@@ -34,7 +27,7 @@ public class Plant : MonoBehaviour
     {
         if (!isReady || inventory == null) return false;
 
-        inventory.AddItem(harvestResult.item, harvestResult.amount);
+        inventory.AddItem(cropItemID, harvestAmount);
         Destroy(gameObject);
         parentField.ClearField();
         return true;

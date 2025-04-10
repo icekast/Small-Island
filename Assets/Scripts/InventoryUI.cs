@@ -10,22 +10,45 @@ public class InventoryUI : MonoBehaviour
 
     private List<GameObject> slotInstances = new List<GameObject>();
 
-    void Start()
+    void OnEnable()
     {
+        inventory.onInventoryChanged.AddListener(RefreshUI);
         RefreshUI();
+    }
+
+    void OnDisable()
+    {
+        inventory.onInventoryChanged.RemoveListener(RefreshUI);
     }
 
     public void RefreshUI()
     {
+        // Очистка старых слотов
         foreach (var slot in slotInstances)
+        {
             Destroy(slot);
+        }
         slotInstances.Clear();
 
-        foreach (InventoryItem item in inventory.items)
+        // Создание новых слотов для каждого предмета
+        foreach (InventoryItem item in inventory.GetAllItems())
         {
             GameObject slotGO = Instantiate(slotPrefab, slotParent);
-            slotGO.GetComponentInChildren<Image>().sprite = item.icon;
-            slotGO.GetComponentInChildren<Text>().text = $"{item.itemName} ({item.quantity})";
+
+            // Настройка изображения и текста
+            Image iconImage = slotGO.GetComponentInChildren<Image>();
+            if (iconImage != null && item.icon != null)
+            {
+                iconImage.sprite = item.icon;
+            }
+
+            Text itemText = slotGO.GetComponentInChildren<Text>();
+            if (itemText != null)
+            {
+                itemText.text = item.IsStackable ?
+                    $"{item.displayName} ({item.quantity})" :
+                    item.displayName;
+            }
 
             slotInstances.Add(slotGO);
         }

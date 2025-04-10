@@ -1,4 +1,0 @@
-repository "Small Island/Small Island@10171489412835@cloud"
-  path "/"
-    br "/main"
-    co "/main"
