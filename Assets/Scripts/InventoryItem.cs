@@ -1,6 +1,13 @@
 using UnityEngine;
 
 [System.Serializable]
+public enum ItemType
+{
+    Seed,
+    Crop,
+    Tool,
+    Resource
+}
 public class InventoryItem
 {
     public string itemName;
@@ -13,4 +20,5 @@ public class InventoryItem
     public float growTime;          // Для семян
 
     public bool IsSeed => plantPrefab != null;
+    public int cost;
 }
