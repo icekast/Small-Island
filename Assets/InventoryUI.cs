@@ -25,7 +25,7 @@ public class InventoryUI : MonoBehaviour
         {
             GameObject slotGO = Instantiate(slotPrefab, slotParent);
             slotGO.GetComponentInChildren<Image>().sprite = item.icon;
-            slotGO.GetComponentInChildren<Text>().text = item.quantity.ToString();
+            slotGO.GetComponentInChildren<Text>().text = $"{item.itemName} ({item.quantity})";
 
             slotInstances.Add(slotGO);
         }
