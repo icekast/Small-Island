@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb37308093167e84f8d63242bef6dba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 0}
+  slotPrefab: {fileID: 5070632179353199142, guid: 07ab83543e9eff249847a8bbb2e8586c, type: 3}
   slotParent: {fileID: 1735115866}
   inventory: {fileID: 395688399}
 --- !u!114 &1335950875

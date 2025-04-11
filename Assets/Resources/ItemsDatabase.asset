@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53e1f1d15c93ba478548b99291d2bb8, type: 3}
+  m_Name: ItemsDatabase
+  m_EditorClassIdentifier: 
+  items:
+  - itemID: tomato_seed
+    displayName: Tomato seed
+    type: 0
+    icon: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
+    description: hh
+    cost: 30
+    isStackable: 1
+    maxStackSize: 100
+    worldPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    inventoryPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    growTime: 5
+    baseValue: 3
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+  - itemID: cucumber_seed
+    displayName: Cucumber seed
+    type: 0
+    icon: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
+    description: hh
+    cost: 40
+    isStackable: 1
+    maxStackSize: 100
+    worldPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    inventoryPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    growTime: 7
+    baseValue: 5
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}

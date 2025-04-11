@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
 
         if (ItemsDatabase.Instance == null)
         {
-            Debug.LogError("ItemsDatabase not initialized!");
+            Debug.LogError("ItemsDatabase не найдена!");
             return false;
         }
 
@@ -77,4 +77,8 @@ public class Inventory : MonoBehaviour
     public InventoryItem GetItem(string itemID) => items.Find(i => i.itemID == itemID);
     public int GetItemCount(string itemID) => GetItem(itemID)?.quantity ?? 0;
     public bool HasItem(string itemID, int minAmount = 1) => GetItemCount(itemID) >= minAmount;
+    private InventoryItem selectedItem;
+
+    public void SetSelectedItem(InventoryItem item) => selectedItem = item;
+    public InventoryItem GetSelectedItem() => selectedItem;
 }

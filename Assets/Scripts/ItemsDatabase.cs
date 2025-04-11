@@ -42,7 +42,7 @@ public class ItemsDatabase : ScriptableObject
             {
                 _instance = Resources.Load<ItemsDatabase>("ItemsDatabase");
                 if (_instance == null)
-                    Debug.LogError("Unity это калллллллллллллллллллл!");
+                    Debug.LogError("ItemsDatabase не найдена!");
             }
             return _instance;
         }
@@ -85,4 +85,5 @@ public class ItemsDatabase : ScriptableObject
         });
     }
 #endif
+
 }
