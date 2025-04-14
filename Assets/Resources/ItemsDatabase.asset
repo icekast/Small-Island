@@ -41,3 +41,17 @@ MonoBehaviour:
     baseValue: 5
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+  - itemID: cucumber
+    displayName: Cucumber
+    type: 1
+    icon: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
+    description: hh
+    cost: 40
+    isStackable: 1
+    maxStackSize: 100
+    worldPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    inventoryPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    growTime: 7
+    baseValue: 5
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}

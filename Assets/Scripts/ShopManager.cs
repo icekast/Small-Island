@@ -47,6 +47,7 @@ public class ShopManager : MonoBehaviour
         if (totalValue > 0)
         {
             inventory.money += totalValue;
+            inventory.onInventoryChanged.Invoke();
         }
     }
 }
