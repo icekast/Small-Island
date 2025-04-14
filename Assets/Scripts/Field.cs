@@ -54,6 +54,10 @@ public class Field : MonoBehaviour
         {
             PlantSeed(selectedItem);
         }
+        else
+        {
+            Debug.Log("Сначала выберите семя в инвентаре!");
+        }
     }
 
     public void ClearField()

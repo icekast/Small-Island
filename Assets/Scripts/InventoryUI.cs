@@ -50,6 +50,11 @@ public class InventoryUI : MonoBehaviour
                     item.displayName;
             }
 
+            Button slotButton = slotGO.GetComponent<Button>();
+            if (slotButton != null)
+                slotButton.onClick.AddListener(() => inventory.SetSelectedItem(item));
+
+
             slotInstances.Add(slotGO);
         }
     }
