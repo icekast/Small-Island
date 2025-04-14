@@ -29,6 +29,9 @@ public class ItemsDatabase : ScriptableObject
         [Header("Plant Settings")]
         public GameObject plantPrefab;  // Добавляем это поле
         public GameObject harvestPrefab; // И это поле
+        public string harvestItemID; // ID урожая, который дает это растение
+        public int harvestAmount = 1; // Количество урожая при сборе
+        public Sprite plantSprite; // Спрайт растения
     }
 
     [SerializeField] private List<ItemData> items = new List<ItemData>();

@@ -14,27 +14,30 @@ public class Field : MonoBehaviour
 
     public bool PlantSeed(InventoryItem seedItem)
     {
-        // Проверяем условия посадки
         if (isPlanted || !seedItem.IsSeed || seedItem.plantPrefab == null)
             return false;
 
-        // Проверяем, есть ли семена в инвентаре
         if (!inventory.HasItem(seedItem.itemID, 1))
         {
             Debug.Log($"Нет семян {seedItem.itemID} в инвентаре!");
             return false;
         }
 
-        // Создаем растение
         GameObject plantObj = Instantiate(seedItem.plantPrefab, transform.position, Quaternion.identity);
         currentPlant = plantObj.GetComponent<Plant>();
 
         if (currentPlant != null)
         {
-            // Убираем 1 семя из инвентаря
+            // Передаем все данные из семени в растение
+            currentPlant.Init(
+                seedItem.growTime,
+                this,
+                seedItem.harvestItemID, // ID урожая
+                seedItem.harvestAmount, // Количество урожая
+                seedItem.icon // Спрайт растения
+            );
+
             inventory.RemoveItem(seedItem.itemID, 1);
-            
-            currentPlant.Init(seedItem.growTime, this);
             isPlanted = true;
             return true;
         }

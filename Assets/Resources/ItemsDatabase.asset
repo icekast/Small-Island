@@ -27,6 +27,9 @@ MonoBehaviour:
     baseValue: 3
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: tomato
+    harvestAmount: 1
+    plantSprite: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
   - itemID: cucumber_seed
     displayName: Cucumber seed
     type: 0
@@ -41,6 +44,9 @@ MonoBehaviour:
     baseValue: 5
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: cucumber
+    harvestAmount: 1
+    plantSprite: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
   - itemID: cucumber
     displayName: Cucumber
     type: 1
@@ -55,3 +61,23 @@ MonoBehaviour:
     baseValue: 5
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 1
+    plantSprite: {fileID: 0}
+  - itemID: tomato
+    displayName: Tomato
+    type: 1
+    icon: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
+    description: 
+    cost: 30
+    isStackable: 1
+    maxStackSize: 100
+    worldPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    inventoryPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    growTime: 7
+    baseValue: 5
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 1
+    plantSprite: {fileID: 0}

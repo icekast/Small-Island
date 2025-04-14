@@ -3,16 +3,28 @@ using System.Collections;
 
 public class Plant : MonoBehaviour
 {
-    public string cropItemID;
-    public int harvestAmount = 1;
     private float growTime;
     private Field parentField;
     private bool isReady = false;
+    private string harvestItemID;
+    private int harvestAmount;
+    private Sprite plantSprite;
 
-    public void Init(float growTime, Field field)
+    // Инициализация с передачей всех параметров
+    public void Init(float growTime, Field field, string harvestItemID, int harvestAmount, Sprite sprite)
     {
         this.growTime = growTime;
-        parentField = field;
+        this.parentField = field;
+        this.harvestItemID = harvestItemID;
+        this.harvestAmount = harvestAmount;
+        this.plantSprite = sprite;
+
+        // Устанавливаем спрайт
+        if (TryGetComponent<SpriteRenderer>(out var renderer))
+        {
+            renderer.sprite = sprite;
+        }
+
         StartCoroutine(Grow());
     }
 
@@ -20,14 +32,14 @@ public class Plant : MonoBehaviour
     {
         yield return new WaitForSeconds(growTime);
         isReady = true;
-        // Визуальные изменения созревшего растения
+        // Можно добавить визуальные изменения созревшего растения
     }
 
     public bool Harvest(Inventory inventory)
     {
         if (!isReady || inventory == null) return false;
 
-        inventory.AddItem(cropItemID, harvestAmount);
+        inventory.AddItem(harvestItemID, harvestAmount);
         Destroy(gameObject);
         parentField.ClearField();
         return true;
