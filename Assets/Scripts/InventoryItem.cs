@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class InventoryItem
 {
+    // Базовые свойства
     public string itemID;
     public string displayName;
     public ItemType type;
@@ -10,20 +11,17 @@ public class InventoryItem
     public int quantity;
     public int cost;
 
-    [TextArea] public string description;
-
-    // Seed/Plant related fields
+    // Свойства для растений
     public float growTime;
-    public int baseValue;
     public GameObject plantPrefab;
-    public GameObject harvestPrefab;
-    public string harvestItemID;  // ID предмета, который выпадает при сборе урожая
-    public int harvestAmount = 1; // Количество выпадающего урожая
-    public Sprite plantSprite;    // Спрайт растения (для отображения на поле)
+    public string harvestItemID;
+    public int harvestAmount;
+    public Sprite plantSprite;
 
-    // Properties
+    // Вычисляемые свойства
     public bool IsStackable => type != ItemType.Tool;
     public bool IsSeed => type == ItemType.Seed;
+    public int MaxStackSize => IsStackable ? 99 : 1;
 
     public InventoryItem Clone()
     {
@@ -35,11 +33,8 @@ public class InventoryItem
             icon = this.icon,
             quantity = this.quantity,
             cost = this.cost,
-            description = this.description,
             growTime = this.growTime,
-            baseValue = this.baseValue,
             plantPrefab = this.plantPrefab,
-            harvestPrefab = this.harvestPrefab,
             harvestItemID = this.harvestItemID,
             harvestAmount = this.harvestAmount,
             plantSprite = this.plantSprite

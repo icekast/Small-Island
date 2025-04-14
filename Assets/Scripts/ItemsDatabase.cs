@@ -7,31 +7,19 @@ public class ItemsDatabase : ScriptableObject
     [System.Serializable]
     public class ItemData
     {
+        [Header("Basic Settings")]
         public string itemID;
         public string displayName;
         public ItemType type;
         public Sprite icon;
-        [TextArea] public string description;
         public int cost;
 
-        [Header("Stack Settings")]
-        public bool isStackable = true;
-        public int maxStackSize = 99;
-
-        [Header("Prefabs")]
-        public GameObject worldPrefab;
-        public GameObject inventoryPrefab;
-
-        [Header("Growth Settings")]
-        public float growTime = 60f;
-        public int baseValue = 10;
-
         [Header("Plant Settings")]
-        public GameObject plantPrefab;  // Добавляем это поле
-        public GameObject harvestPrefab; // И это поле
-        public string harvestItemID; // ID урожая, который дает это растение
-        public int harvestAmount = 1; // Количество урожая при сборе
-        public Sprite plantSprite; // Спрайт растения
+        public float growTime;
+        public GameObject plantPrefab;
+        public string harvestItemID;
+        public int harvestAmount = 1;
+        public Sprite plantSprite;
     }
 
     [SerializeField] private List<ItemData> items = new List<ItemData>();
@@ -42,11 +30,7 @@ public class ItemsDatabase : ScriptableObject
         get
         {
             if (_instance == null)
-            {
                 _instance = Resources.Load<ItemsDatabase>("ItemsDatabase");
-                if (_instance == null)
-                    Debug.LogError("ItemsDatabase не найдена!");
-            }
             return _instance;
         }
     }
@@ -62,31 +46,16 @@ public class ItemsDatabase : ScriptableObject
             displayName = data.displayName,
             type = data.type,
             icon = data.icon,
-            quantity = Mathf.Clamp(amount, 1, data.maxStackSize),
-            growTime = data.growTime,
-            baseValue = data.baseValue,
             cost = data.cost,
-            plantPrefab = data.plantPrefab,    // Добавляем эту строку
-            harvestPrefab = data.harvestPrefab // И эту строку
+            quantity = amount,
+            growTime = data.growTime,
+            plantPrefab = data.plantPrefab,
+            harvestItemID = data.harvestItemID,
+            harvestAmount = data.harvestAmount,
+            plantSprite = data.plantSprite
         };
     }
 
     public ItemData GetItemData(string itemID) => items.Find(i => i.itemID == itemID);
     public bool ItemExists(string itemID) => items.Exists(i => i.itemID == itemID);
-    public GameObject GetWorldPrefab(string itemID) => GetItemData(itemID)?.worldPrefab;
-
-#if UNITY_EDITOR
-    public void AddNewItem(ItemType type)
-    {
-        items.Add(new ItemData
-        {
-            itemID = $"new_{type}_{System.Guid.NewGuid().ToString("N").Substring(0, 8)}",
-            displayName = $"New {type}",
-            type = type,
-            isStackable = type != ItemType.Tool,
-            maxStackSize = type == ItemType.Tool ? 1 : 99
-        });
-    }
-#endif
-
 }
