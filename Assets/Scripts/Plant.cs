@@ -3,50 +3,61 @@ using System.Collections;
 
 public class Plant : MonoBehaviour
 {
-    [Header("Settings")]
-    public string harvestItemID; // ID предмета, который выпадает при сборе
-    public int harvestAmount = 1;
-    public float growTime = 10f;
-    public SpriteRenderer spriteRenderer;
-    public Sprite grownSprite; // Спрайт созревшего растения
+    [Header("References")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
-    private bool isReady = false;
+    [Header("Growth Settings")]
+    [SerializeField] private Sprite grownSprite;
+
+    private string harvestItemID;
+    private int harvestAmount;
     private Field parentField;
 
-    public void Init(Field field)
+    public void Initialize(Field field, Sprite initialSprite, float growTime, string harvestItemID, int harvestAmount)
     {
-        parentField = field;
-        StartCoroutine(Grow());
+        this.parentField = field;
+        this.harvestItemID = harvestItemID;
+        this.harvestAmount = harvestAmount;
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = initialSprite;
+        }
+
+        StartCoroutine(GrowToMaturity(growTime));
     }
 
-    IEnumerator Grow()
+    private IEnumerator GrowToMaturity(float growTime)
     {
         yield return new WaitForSeconds(growTime);
-        isReady = true;
-        spriteRenderer.sprite = grownSprite; // Меняем спрайт на "созревший"
+
+        if (spriteRenderer != null && grownSprite != null)
+        {
+            spriteRenderer.sprite = grownSprite;
+        }
     }
 
-    // Вызывается при клике на растение
     private void OnMouseDown()
     {
-        if (isReady)
+        if (IsReadyToHarvest())
         {
             Harvest();
         }
     }
 
-    public void Harvest()
+    private bool IsReadyToHarvest()
     {
-        if (!isReady) return;
+        return spriteRenderer != null && spriteRenderer.sprite == grownSprite;
+    }
 
-        // Добавляем урожай в инвентарь
+    private void Harvest()
+    {
         Inventory inventory = FindObjectOfType<Inventory>();
         if (inventory != null)
         {
             inventory.AddItem(harvestItemID, harvestAmount);
         }
 
-        // Очищаем поле
         parentField.ClearField();
         Destroy(gameObject);
     }

@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     public UnityEvent onInventoryChanged;
 
     private List<InventoryItem> items = new List<InventoryItem>();
+    private InventoryItem selectedItem;
 
     public bool AddItem(string itemID, int amount = 1)
     {
@@ -77,8 +78,12 @@ public class Inventory : MonoBehaviour
     public InventoryItem GetItem(string itemID) => items.Find(i => i.itemID == itemID);
     public int GetItemCount(string itemID) => GetItem(itemID)?.quantity ?? 0;
     public bool HasItem(string itemID, int minAmount = 1) => GetItemCount(itemID) >= minAmount;
-    private InventoryItem selectedItem;
 
-    public void SetSelectedItem(InventoryItem item) => selectedItem = item;
+    public void SetSelectedItem(InventoryItem item)
+    {
+        selectedItem = item;
+        onInventoryChanged.Invoke();
+    }
+
     public InventoryItem GetSelectedItem() => selectedItem;
 }

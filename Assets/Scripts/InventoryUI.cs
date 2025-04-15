@@ -4,97 +4,75 @@ using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
-    public GameObject slotPrefab; // Префаб должен содержать: Image (иконка), Text (название и количество)
-    public Transform slotParent;
-    public Inventory inventory;
-    public Color selectionColor = new Color(1, 0.8f, 0, 0.3f); // Полупрозрачный оранжевый
+    [Header("References")]
+    [SerializeField] private GameObject slotPrefab;
+    [SerializeField] private Transform slotParent;
+    [SerializeField] private Inventory inventory;
+    [SerializeField] private Color selectionColor = new Color(1, 0.8f, 0, 0.3f);
 
     private List<GameObject> slotInstances = new List<GameObject>();
-    private int selectedSlotIndex = -1;
 
-    void OnEnable()
-    {
-        inventory.onInventoryChanged.AddListener(RefreshUI);
-        RefreshUI();
-    }
-
-    void OnDisable()
-    {
-        inventory.onInventoryChanged.RemoveListener(RefreshUI);
-    }
+    private void OnEnable() => inventory.onInventoryChanged.AddListener(RefreshUI);
+    private void OnDisable() => inventory.onInventoryChanged.RemoveListener(RefreshUI);
 
     public void RefreshUI()
     {
-        // Очистка старых слотов
+        ClearSlots();
+        CreateSlots();
+    }
+
+    private void ClearSlots()
+    {
         foreach (var slot in slotInstances)
         {
             Destroy(slot);
         }
         slotInstances.Clear();
+    }
 
-        // Создание новых слотов
-        var items = inventory.GetAllItems();
-        for (int i = 0; i < items.Count; i++)
+    private void CreateSlots()
+    {
+        foreach (var item in inventory.GetAllItems())
         {
             GameObject slotGO = Instantiate(slotPrefab, slotParent);
-            InventoryItem item = items[i];
-
-            // Находим компоненты
-            Image iconImage = slotGO.transform.Find("Icon")?.GetComponent<Image>();
-            Text itemText = slotGO.GetComponentInChildren<Text>(); // Основной текст слота
-            Image background = slotGO.GetComponent<Image>(); // Фон для выделения
-
-            // Заполняем данные
-            if (iconImage != null)
-            {
-                iconImage.sprite = item.icon;
-                iconImage.color = item.icon != null ? Color.white : Color.clear;
-            }
-
-            if (itemText != null)
-            {
-                itemText.text = item.IsStackable ?
-                    $"{item.displayName} ({item.quantity})" :
-                    item.displayName;
-            }
-
-            // Выделение
-            if (background != null)
-            {
-                background.color = (i == selectedSlotIndex) ? selectionColor : Color.white;
-            }
-
-            // Настройка кнопки
-            Button button = slotGO.GetComponent<Button>();
-            if (button != null)
-            {
-                int index = i;
-                button.onClick.AddListener(() => SelectSlot(index));
-            }
-
+            SetupSlot(slotGO, item);
             slotInstances.Add(slotGO);
         }
     }
 
-    private void SelectSlot(int index)
+    private void SetupSlot(GameObject slotGO, InventoryItem item)
     {
-        // Снимаем выделение
-        if (selectedSlotIndex >= 0 && selectedSlotIndex < slotInstances.Count)
+        // Настройка изображений и текста
+        Image iconImage = slotGO.transform.Find("Icon")?.GetComponent<Image>();
+        Text itemText = slotGO.GetComponentInChildren<Text>();
+        Image background = slotGO.GetComponent<Image>();
+
+        if (iconImage != null)
         {
-            var oldBg = slotInstances[selectedSlotIndex].GetComponent<Image>();
-            if (oldBg != null) oldBg.color = Color.white;
+            iconImage.sprite = item.icon;
+            iconImage.color = item.icon != null ? Color.white : Color.clear;
         }
 
-        // Устанавливаем новое выделение
-        selectedSlotIndex = index;
-        var newBg = slotInstances[index].GetComponent<Image>();
-        if (newBg != null) newBg.color = selectionColor;
-
-        // Выбираем предмет
-        var items = inventory.GetAllItems();
-        if (index < items.Count)
+        if (itemText != null)
         {
-            inventory.SetSelectedItem(items[index]);
+            itemText.text = item.IsStackable ? $"{item.displayName} ({item.quantity})" : item.displayName;
+        }
+
+        // Настройка кнопки
+        Button button = slotGO.GetComponent<Button>();
+        if (button != null)
+        {
+            button.onClick.AddListener(() => {
+                inventory.SetSelectedItem(item);
+                RefreshUI();
+            });
+        }
+
+        // Выделение выбранного предмета
+        if (background != null)
+        {
+            var selected = inventory.GetSelectedItem();
+            background.color = (selected != null && selected.itemID == item.itemID) ? selectionColor : Color.black;
         }
     }
 }

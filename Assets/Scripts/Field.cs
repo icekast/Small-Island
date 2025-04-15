@@ -5,20 +5,47 @@ public class Field : MonoBehaviour
     private Plant currentPlant;
     private bool isPlanted = false;
 
-    public bool PlantSeed(InventoryItem seedItem)
+    public bool PlantSeed(string seedItemID)
     {
-        if (isPlanted || !seedItem.IsSeed) return false;
+        // Проверяем условия посадки
+        if (isPlanted) return false;
 
-        GameObject plantObj = Instantiate(seedItem.plantPrefab, transform.position, Quaternion.identity);
+        Inventory inventory = FindObjectOfType<Inventory>();
+        if (inventory == null) return false;
+
+        // Проверяем наличие семян в инвентаре
+        if (!inventory.HasItem(seedItemID)) return false;
+
+        // Получаем данные из базы
+        ItemsDatabase.ItemData plantData = ItemsDatabase.Instance.GetItemData(seedItemID);
+        if (plantData == null || plantData.type != ItemType.Seed || plantData.plantPrefab == null)
+        {
+            Debug.LogError($"Invalid seed data for {seedItemID}");
+            return false;
+        }
+
+        // Создаем растение
+        GameObject plantObj = Instantiate(
+            plantData.plantPrefab,
+            transform.position,
+            Quaternion.identity,
+            transform
+        );
+
         currentPlant = plantObj.GetComponent<Plant>();
-
         if (currentPlant != null)
         {
-            // Передаем параметры из семени в растение
-            currentPlant.harvestItemID = seedItem.harvestItemID;
-            currentPlant.harvestAmount = seedItem.harvestAmount;
-            currentPlant.growTime = seedItem.growTime;
-            currentPlant.Init(this);
+            // Инициализируем растение
+            currentPlant.Initialize(
+                field: this,
+                initialSprite: plantData.plantSprite,
+                growTime: plantData.growTime,
+                harvestItemID: plantData.harvestItemID,
+                harvestAmount: plantData.harvestAmount
+            );
+
+            // Удаляем семя из инвентаря
+            inventory.RemoveItem(seedItemID, 1);
 
             isPlanted = true;
             return true;
@@ -32,5 +59,15 @@ public class Field : MonoBehaviour
     {
         isPlanted = false;
         currentPlant = null;
+    }
+
+    // Для взаимодействия через клик
+    private void OnMouseDown()
+    {
+        Inventory inventory = FindObjectOfType<Inventory>();
+        if (inventory != null && inventory.GetSelectedItem() != null)
+        {
+            PlantSeed(inventory.GetSelectedItem().itemID);
+        }
     }
 }

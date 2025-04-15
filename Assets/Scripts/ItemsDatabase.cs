@@ -55,7 +55,5 @@ public class ItemsDatabase : ScriptableObject
             plantSprite = data.plantSprite
         };
     }
-
     public ItemData GetItemData(string itemID) => items.Find(i => i.itemID == itemID);
-    public bool ItemExists(string itemID) => items.Exists(i => i.itemID == itemID);
 }
