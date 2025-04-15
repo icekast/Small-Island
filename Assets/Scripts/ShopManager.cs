@@ -1,9 +1,37 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
     public string[] availableSeedIDs;
     public int cropSellPrice = 20;
+    [Header("UI Elements")]
+    public GameObject shopPanel; // Ваша панель магазина
+    public Button ShopButton; // Кнопка открытия магазина
+    public Button CloseShop; // Кнопка закрытия на панели
+
+    void Start()
+    {
+        // Скрываем панель при старте
+        shopPanel.SetActive(false);
+
+        // Назначаем обработчики кликов
+        ShopButton.onClick.AddListener(OpenShop);
+        CloseShop.onClick.AddListener(closeShop);
+    }
+
+    public void OpenShop()
+    {
+        shopPanel.SetActive(true);
+        // Дополнительная логика при открытии магазина
+        Debug.Log("Магазин открыт");
+    }
+    public void closeShop()
+    {
+        shopPanel.SetActive(false);
+        // Дополнительная логика при закрытии магазина
+        Debug.Log("Магазин закрыт");
+    }
 
     public bool BuySeed(int index, Inventory inventory)
     {
