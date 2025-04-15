@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class ShopManager : MonoBehaviour
 {
@@ -10,14 +11,63 @@ public class ShopManager : MonoBehaviour
     public Button ShopButton; // Кнопка открытия магазина
     public Button CloseShop; // Кнопка закрытия на панели
 
+    [Header("Основные компоненты")]
+    public Transform shopItemsContainer;     // Родительский объект для товаров (например, VerticalLayoutGroup)
+    public GameObject shopItemPrefab;        // Префаб UI-карточки товара (должен содержать ShopItemUI)
+
+    [Header("Товары для продажи")]
+    public List<string> sellableItems;   // ID товаров, которые можно продавать
+
+    [Header("Текст денег")]
+    public Text moneyText;
+
+    private Inventory inventory;
+
     void Start()
     {
         // Скрываем панель при старте
         shopPanel.SetActive(false);
 
+        GenerateShopItems();
+
         // Назначаем обработчики кликов
         ShopButton.onClick.AddListener(OpenShop);
         CloseShop.onClick.AddListener(closeShop);
+    }
+
+    // Создаёт элементы магазина на основе базы данных
+    private void GenerateShopItems()
+    {
+        foreach (string itemID in sellableItems)
+        {
+            ItemsDatabase.ItemData itemData = ItemsDatabase.Instance.GetItemData(itemID);
+            if (itemData == null) continue;
+
+            // Создаём UI-элемент товара
+            GameObject itemGO = Instantiate(shopItemPrefab, shopItemsContainer);
+            ShopItemUI itemUI = itemGO.GetComponent<ShopItemUI>();
+
+            // Настраиваем отображение
+            itemUI.Setup(itemData, () => OnItemPurchased(itemID));
+        }
+    }
+
+    // Обработчик покупки
+    private void OnItemPurchased(string itemID)
+    {
+        Inventory inventory = FindObjectOfType<Inventory>();
+        ItemsDatabase.ItemData itemData = ItemsDatabase.Instance.GetItemData(itemID);
+
+        if (inventory.money >= itemData.cost)
+        {
+            inventory.money -= itemData.cost;
+            inventory.AddItem(itemID, 1);
+            Debug.Log($"Куплено: {itemData.displayName}");
+        }
+        else
+        {
+            Debug.Log("Недостаточно денег!");
+        }
     }
 
     public void OpenShop()
