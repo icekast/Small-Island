@@ -1,15 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class Movment : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    private Rigidbody2D rb;
+    public Sprite front;
+    public Sprite left;
+    public Sprite right;
+    public Sprite back;
+
+    public float moveSpeed;
+    private Rigidbody2D rigidbody2d;
+    private SpriteRenderer spriteRenderer;
     private Vector2 movement;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidbody2d = this.GetComponent<Rigidbody2D>();
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -18,8 +26,25 @@ public class PlayerController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (movement.y > 0)
+        {
+            spriteRenderer.sprite = back;
+        }
+        else if (movement.y < 0)
+        {
+            spriteRenderer.sprite = front;
+        }
+        else if (movement.x > 0)
+        {
+            spriteRenderer.sprite = right;
+        }
+        else if (movement.x < 0)
+        {
+            spriteRenderer.sprite = left;
+        }
+
+        rigidbody2d.MovePosition(rigidbody2d.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }

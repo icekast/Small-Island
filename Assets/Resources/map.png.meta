@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: df81084ae48bb0f44b5429b57d1adca0
+guid: e8662eeb1f8feeb47a1fe3501154dab4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2600593141325629521
-    second: tomato-pixel-art-sign-organic-600w-2226455987_0
+      213: 4804446361586417100
+    second: map_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tomato-pixel-art-sign-organic-600w-2226455987_0
+      name: map_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 581
-        height: 620
+        y: 1
+        width: 1440
+        height: 809
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa7f7f50156d8ebd0800000000000000
-      internalID: -2600593141325629521
+      spriteID: ccdb6c4c282dca240800000000000000
+      internalID: 4804446361586417100
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      tomato-pixel-art-sign-organic-600w-2226455987_0: -2600593141325629521
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
