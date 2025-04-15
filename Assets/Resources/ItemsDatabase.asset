@@ -23,6 +23,7 @@ MonoBehaviour:
     harvestItemID: tomato
     harvestAmount: 1
     plantSprite: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
+    grownSprite: {fileID: -2600593141325629521, guid: df81084ae48bb0f44b5429b57d1adca0, type: 3}
   - itemID: cucumber_seed
     displayName: Cucumber seed
     type: 0
@@ -33,6 +34,7 @@ MonoBehaviour:
     harvestItemID: cucumber
     harvestAmount: 1
     plantSprite: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
+    grownSprite: {fileID: 0}
   - itemID: cucumber
     displayName: Cucumber
     type: 1
@@ -43,6 +45,7 @@ MonoBehaviour:
     harvestItemID: 
     harvestAmount: 1
     plantSprite: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
+    grownSprite: {fileID: 0}
   - itemID: tomato
     displayName: Tomato
     type: 1
@@ -53,3 +56,4 @@ MonoBehaviour:
     harvestItemID: 
     harvestAmount: 1
     plantSprite: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
+    grownSprite: {fileID: 0}

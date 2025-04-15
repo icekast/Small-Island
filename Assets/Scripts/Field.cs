@@ -39,6 +39,7 @@ public class Field : MonoBehaviour
             currentPlant.Initialize(
                 field: this,
                 initialSprite: plantData.plantSprite,
+                plantData.grownSprite,
                 growTime: plantData.growTime,
                 harvestItemID: plantData.harvestItemID,
                 harvestAmount: plantData.harvestAmount

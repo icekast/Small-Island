@@ -6,24 +6,27 @@ public class Plant : MonoBehaviour
     [Header("References")]
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    [Header("Growth Settings")]
-    [SerializeField] private Sprite grownSprite;
+    [Header("Field Settings")]
+    [SerializeField] private Vector2 fieldSize;
 
     private string harvestItemID;
     private int harvestAmount;
     private Field parentField;
+    private Sprite grownSprite;
+    private bool isGrown = false;
 
-    public void Initialize(Field field, Sprite initialSprite, float growTime, string harvestItemID, int harvestAmount)
+    public void Initialize(Field field, Sprite initialSprite, Sprite grownSprite, float growTime, string harvestItemID, int harvestAmount)
     {
         this.parentField = field;
         this.harvestItemID = harvestItemID;
         this.harvestAmount = harvestAmount;
+        this.grownSprite = grownSprite;
 
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.sprite = initialSprite;
-        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = initialSprite;
+        spriteRenderer.sortingOrder = 1;
 
+        AdjustSpriteSizeToField(field);
         StartCoroutine(GrowToMaturity(growTime));
     }
 
@@ -34,6 +37,7 @@ public class Plant : MonoBehaviour
         if (spriteRenderer != null && grownSprite != null)
         {
             spriteRenderer.sprite = grownSprite;
+            isGrown = true; // <-- отмечаем как зрелое
         }
     }
 
@@ -47,7 +51,7 @@ public class Plant : MonoBehaviour
 
     private bool IsReadyToHarvest()
     {
-        return spriteRenderer != null && spriteRenderer.sprite == grownSprite;
+        return isGrown;
     }
 
     private void Harvest()
@@ -60,5 +64,25 @@ public class Plant : MonoBehaviour
 
         parentField.ClearField();
         Destroy(gameObject);
+    }
+    private void AdjustSpriteSizeToField(Field field)
+    {
+        if (spriteRenderer == null || spriteRenderer.sprite == null) return;
+
+        SpriteRenderer fieldRenderer = field.GetComponent<SpriteRenderer>();
+        if (fieldRenderer == null || fieldRenderer.sprite == null) return;
+
+        // Размеры спрайта поля и растения
+        Vector2 fieldSize = fieldRenderer.sprite.bounds.size;
+        Vector2 plantSize = spriteRenderer.sprite.bounds.size;
+
+        // Вычисляем масштаб (по x и y)
+        Vector3 newScale = new Vector3(
+            fieldSize.x / plantSize.x,
+            fieldSize.y / plantSize.y,
+            1f
+        );
+
+        transform.localScale = newScale;
     }
 }

@@ -20,6 +20,7 @@ public class ItemsDatabase : ScriptableObject
         public string harvestItemID;
         public int harvestAmount = 1;
         public Sprite plantSprite;
+        public Sprite grownSprite;
     }
 
     [SerializeField] private List<ItemData> items = new List<ItemData>();
