@@ -902,7 +902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 520010849}
-  smoothSpeed: 0.125
+  smoothSpeed: 1
   offset: {x: 0, y: 0, z: -10}
 --- !u!1 &520010845
 GameObject:
@@ -2234,6 +2234,10 @@ MonoBehaviour:
   shopPanel: {fileID: 2508731}
   ShopButton: {fileID: 804249097}
   CloseShop: {fileID: 579258822}
+  shopItemsContainer: {fileID: 0}
+  shopItemPrefab: {fileID: 0}
+  sellableItems: []
+  moneyText: {fileID: 0}
 --- !u!4 &2080434857
 Transform:
   m_ObjectHideFlags: 0
