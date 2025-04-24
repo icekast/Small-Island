@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class ShopManager : MonoBehaviour
 {
     public string[] availableSeedIDs;
-    public int cropSellPrice = 20;
     [Header("UI Elements")]
     public GameObject shopPanel; // Ваша панель магазина
     public Button ShopButton; // Кнопка открытия магазина
@@ -117,7 +116,7 @@ public class ShopManager : MonoBehaviour
         {
             if (item.type == ItemType.Crop)
             {
-                totalValue += item.quantity * cropSellPrice;
+                totalValue += item.quantity * item.cost;
                 inventory.RemoveItem(item.itemID, item.quantity);
             }
         }
