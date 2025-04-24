@@ -34,12 +34,12 @@ MonoBehaviour:
     harvestItemID: cucumber
     harvestAmount: 1
     plantSprite: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
-    grownSprite: {fileID: 0}
+    grownSprite: {fileID: -5235280566220964929, guid: b243d8157213d9f40ba45623f7068d2c, type: 3}
   - itemID: cucumber
     displayName: Cucumber
     type: 1
     icon: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
-    cost: 40
+    cost: 80
     growTime: 7
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestItemID: 
@@ -50,7 +50,7 @@ MonoBehaviour:
     displayName: Tomato
     type: 1
     icon: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
-    cost: 30
+    cost: 60
     growTime: 7
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestItemID: 
