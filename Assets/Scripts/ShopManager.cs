@@ -8,7 +8,6 @@ public class ShopManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject shopPanel; // Ваша панель магазина
     public Button ShopButton; // Кнопка открытия магазина
-    public Button CloseShop; // Кнопка закрытия на панели
 
     [Header("Основные компоненты")]
     public Transform shopItemsContainer;     // Родительский объект для товаров (например, VerticalLayoutGroup)
@@ -21,6 +20,7 @@ public class ShopManager : MonoBehaviour
     public Text moneyText;
 
     private Inventory inventory;
+    private bool isActive = false;
 
     void Start()
     {
@@ -31,7 +31,6 @@ public class ShopManager : MonoBehaviour
 
         // Назначаем обработчики кликов
         ShopButton.onClick.AddListener(OpenShop);
-        CloseShop.onClick.AddListener(closeShop);
     }
 
     // Создаёт элементы магазина на основе базы данных
@@ -71,15 +70,16 @@ public class ShopManager : MonoBehaviour
 
     public void OpenShop()
     {
-        shopPanel.SetActive(true);
-        // Дополнительная логика при открытии магазина
-        Debug.Log("Магазин открыт");
-    }
-    public void closeShop()
-    {
-        shopPanel.SetActive(false);
-        // Дополнительная логика при закрытии магазина
-        Debug.Log("Магазин закрыт");
+        if (isActive)
+        {
+            shopPanel.SetActive(false);
+            isActive = false;
+        }
+        else
+        {
+            shopPanel.SetActive(true);
+            isActive = true;
+        }
     }
 
     public bool BuySeed(int index, Inventory inventory)
