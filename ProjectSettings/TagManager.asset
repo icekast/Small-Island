@@ -12,8 +12,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
+  - Field
+  - Plant
   - 
   - 
   - 
@@ -38,8 +38,23 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Map
+    uniqueID: 1096490371
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Field
+    uniqueID: 2331128325
+    locked: 0
+  - name: Plant
+    uniqueID: 794900101
+    locked: 0
+  - name: Items
+    uniqueID: 2175132087
+    locked: 0
+  - name: Player
+    uniqueID: 182186613
     locked: 0
   m_RenderingLayers:
   - Default
