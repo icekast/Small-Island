@@ -16,7 +16,7 @@ public class ShopItemUI : MonoBehaviour
         // Заполняем данные
         iconImage.sprite = itemData.icon;
         nameText.text = itemData.displayName;
-        priceText.text = $"{itemData.cost} монет";
+        priceText.text = $"{itemData.cost}";
 
         // Назначаем действие при нажатии на кнопку
         buyButton.onClick.RemoveAllListeners(); // Очищаем старые подписки
