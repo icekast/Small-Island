@@ -3,11 +3,8 @@ using System.Collections;
 
 public class Plant : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private SpriteRenderer spriteRenderer;
-
-    [Header("Field Settings")]
-    [SerializeField] private Vector2 fieldSize;
+    private SpriteRenderer spriteRenderer;
+    private Vector2 fieldSize;
 
     private string harvestItemID;
     private int harvestAmount;
@@ -76,7 +73,7 @@ public class Plant : MonoBehaviour
         Vector2 fieldSize = fieldRenderer.sprite.bounds.size;
         Vector2 plantSize = spriteRenderer.sprite.bounds.size;
 
-        // Вычисляем масштаб (по x и y)
+        // Вычисляем масштаб
         Vector3 newScale = new Vector3(
             fieldSize.x / plantSize.x,
             fieldSize.y / plantSize.y,
@@ -84,5 +81,13 @@ public class Plant : MonoBehaviour
         );
 
         transform.localScale = newScale;
+
+        // Обновляем BoxCollider2D
+        BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+        if (boxCollider != null)
+        {
+            boxCollider.size = spriteRenderer.sprite.bounds.size;
+            boxCollider.offset = spriteRenderer.sprite.bounds.center;
+        }
     }
 }
