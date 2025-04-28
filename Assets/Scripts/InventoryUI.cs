@@ -72,7 +72,7 @@ public class InventoryUI : MonoBehaviour
         if (background != null)
         {
             var selected = inventory.GetSelectedItem();
-            background.color = (selected != null && selected.itemID == item.itemID) ? selectionColor : Color.black;
+            background.color = (selected != null && selected.itemID == item.itemID) ? selectionColor : new Color(1f, 1f, 1f, 0f);
         }
     }
 }

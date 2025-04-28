@@ -115,7 +115,7 @@ MonoBehaviour:
   - itemID: carrot_seed
     displayName: Carrot seed
     type: 0
-    icon: {fileID: -5859083586626064994, guid: 33f4ac0f21fa7ed46bd8b750282c3e82, type: 3}
+    icon: {fileID: 3830134701367068900, guid: 6f0eb3367ab31a04e919b4e441382fa5, type: 3}
     cost: 60
     growTime: 7
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
