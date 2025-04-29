@@ -16,44 +16,198 @@ MonoBehaviour:
   - itemID: tomato_seed
     displayName: Tomato seed
     type: 0
-    icon: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
+    icon: {fileID: -8985264053833804024, guid: 4aac63728fd9d5c49809e5ba5d1c0f44, type: 3}
     cost: 30
     growTime: 5
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestItemID: tomato
     harvestAmount: 1
-    plantSprite: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
-    grownSprite: {fileID: -2600593141325629521, guid: df81084ae48bb0f44b5429b57d1adca0, type: 3}
+    plantSprite: {fileID: -5259875843039360549, guid: ad4e8d881dce97240a696008bb8e2355, type: 3}
+    grownSprite: {fileID: -3242437727892257360, guid: b412770cbec01ab418ad187616fd5e05, type: 3}
   - itemID: cucumber_seed
     displayName: Cucumber seed
     type: 0
-    icon: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
+    icon: {fileID: 7868053789226336056, guid: c54248a86746008489a695ba842820c6, type: 3}
     cost: 40
     growTime: 7
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestItemID: cucumber
     harvestAmount: 1
-    plantSprite: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
-    grownSprite: {fileID: -5235280566220964929, guid: b243d8157213d9f40ba45623f7068d2c, type: 3}
+    plantSprite: {fileID: 6249067528335455245, guid: b98de1c3e61b1d34792e198eff1fa20b, type: 3}
+    grownSprite: {fileID: 7189134256675518244, guid: af041dce6ba1e904d961dc95f0289730, type: 3}
   - itemID: cucumber
     displayName: Cucumber
     type: 1
-    icon: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
+    icon: {fileID: -3513379549867885781, guid: 5cd97102b49f2ad4ab3c5348aac376d4, type: 3}
     cost: 80
     growTime: 7
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestItemID: 
-    harvestAmount: 1
-    plantSprite: {fileID: -49827021452715039, guid: 875c656b4d7a412439493e8b389c41dd, type: 3}
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
     grownSprite: {fileID: 0}
   - itemID: tomato
     displayName: Tomato
     type: 1
-    icon: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
+    icon: {fileID: -8113185096396602001, guid: 3e745e86fda63984dbc05837d9c3aca6, type: 3}
     cost: 60
     growTime: 7
     plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
     harvestItemID: 
-    harvestAmount: 1
-    plantSprite: {fileID: -3962807554240710951, guid: f3e5190d4d1c2dd4aaafb905f7615060, type: 3}
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
     grownSprite: {fileID: 0}
+  - itemID: blackberry
+    displayName: Blackberry
+    type: 1
+    icon: {fileID: 1617826241060244454, guid: 65307569c37f3834480308001eca9be9, type: 3}
+    cost: 60
+    growTime: 7
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
+    grownSprite: {fileID: 0}
+  - itemID: blackberry_seed
+    displayName: Blackberry seed
+    type: 0
+    icon: {fileID: -4601817336834564609, guid: 24851d5982459d7438cc78f5678f19d2, type: 3}
+    cost: 60
+    growTime: 7
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: blackberry
+    harvestAmount: 1
+    plantSprite: {fileID: 6034175598273653420, guid: ff9c804516aa62344a2a5493ebe83214, type: 3}
+    grownSprite: {fileID: -5435365033669102160, guid: ee5d78f3fafe8bf44a521892d814688b, type: 3}
+  - itemID: blueberry
+    displayName: Blueberry
+    type: 1
+    icon: {fileID: -2534248692213106135, guid: fc4a9fe47eb324d4a96c24d6811bab7c, type: 3}
+    cost: 60
+    growTime: 7
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
+    grownSprite: {fileID: 0}
+  - itemID: blueberry_seed
+    displayName: Blueberry seed
+    type: 0
+    icon: {fileID: -6065337610113033247, guid: 9dcf77826c23a8e4c8e41bfbdd689465, type: 3}
+    cost: 60
+    growTime: 7
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: blueberry
+    harvestAmount: 1
+    plantSprite: {fileID: 6034175598273653420, guid: fd39497e39cb99147b73a1b0f4587eb9, type: 3}
+    grownSprite: {fileID: -4335168381465922790, guid: b8d1a94af4ea564478ee2ca512ccc1cd, type: 3}
+  - itemID: carrot
+    displayName: Carrot
+    type: 1
+    icon: {fileID: -5859083586626064994, guid: 33f4ac0f21fa7ed46bd8b750282c3e82, type: 3}
+    cost: 60
+    growTime: 0
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
+    grownSprite: {fileID: 0}
+  - itemID: carrot_seed
+    displayName: Carrot seed
+    type: 0
+    icon: {fileID: 3830134701367068900, guid: 6f0eb3367ab31a04e919b4e441382fa5, type: 3}
+    cost: 60
+    growTime: 7
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: carrot
+    harvestAmount: 1
+    plantSprite: {fileID: -6178759451551817416, guid: f9fed397d7de56e4dbb9936b477b23b9, type: 3}
+    grownSprite: {fileID: -569538963837992984, guid: 5608db3a9450788429909357ceeb569f, type: 3}
+  - itemID: cauliflower
+    displayName: Cauliflower
+    type: 1
+    icon: {fileID: -2529115437362917722, guid: 70002bbe034db7447a7f9769e0a310ba, type: 3}
+    cost: 60
+    growTime: 0
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
+    grownSprite: {fileID: 0}
+  - itemID: cauliflower_seed
+    displayName: Cauliflower seed
+    type: 0
+    icon: {fileID: -7564043788576702451, guid: 86e1416220567ec4daa49d404113275f, type: 3}
+    cost: 60
+    growTime: 7
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: cauliflower
+    harvestAmount: 1
+    plantSprite: {fileID: -9088237948799580648, guid: 622f370a44c9ee44ea39ff2af0ba67e1, type: 3}
+    grownSprite: {fileID: -3218593524613364838, guid: 501adc8344e5a0444aae27609eaccd62, type: 3}
+  - itemID: potato
+    displayName: Potato
+    type: 1
+    icon: {fileID: -5661783315169486296, guid: 37924c3a23130074e9eb2c0bd26f806c, type: 3}
+    cost: 60
+    growTime: 0
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
+    grownSprite: {fileID: 0}
+  - itemID: potato_seed
+    displayName: Potato seed
+    type: 0
+    icon: {fileID: -1425446101532405537, guid: 6cfb7960d2839e84686f0ec4b307a8ea, type: 3}
+    cost: 60
+    growTime: 7
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: potato
+    harvestAmount: 1
+    plantSprite: {fileID: -872770764214637786, guid: 41bc37da9e5c1fe45a36041778538def, type: 3}
+    grownSprite: {fileID: 3437515238310113935, guid: 9deef8da71b782a418473af2a0cf568e, type: 3}
+  - itemID: strawberry
+    displayName: Strawberry
+    type: 1
+    icon: {fileID: 1775669009216684005, guid: 928dd886c79bcd640a45b81a05953f1e, type: 3}
+    cost: 60
+    growTime: 0
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
+    grownSprite: {fileID: 0}
+  - itemID: strawberry_seed
+    displayName: Strawberry seed
+    type: 0
+    icon: {fileID: 952597202234866136, guid: c768a349c40cdd340a97b684b90f8e2e, type: 3}
+    cost: 60
+    growTime: 7
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: strawberry
+    harvestAmount: 1
+    plantSprite: {fileID: -4085657444196420254, guid: 8067c216c5604a24699029f3c00a05e4, type: 3}
+    grownSprite: {fileID: -8742204632230825696, guid: c6ac57131eab5ac49addf49a93d37624, type: 3}
+  - itemID: watermelon
+    displayName: Watermelon
+    type: 1
+    icon: {fileID: -8558258358756935692, guid: 8efcf71bf5c15c54a97eca4a5f420876, type: 3}
+    cost: 60
+    growTime: 0
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: 
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
+    grownSprite: {fileID: 0}
+  - itemID: watermelon_seed
+    displayName: Watermelon seed
+    type: 0
+    icon: {fileID: -5665277791673453610, guid: c53b209a5f6da144985d5ee34a1600d7, type: 3}
+    cost: 60
+    growTime: 10
+    plantPrefab: {fileID: 7688822471259432781, guid: 5cc5df62de428a24fadc78ca26bf03f1, type: 3}
+    harvestItemID: watermelon
+    harvestAmount: 1
+    plantSprite: {fileID: 3077280160104730672, guid: 042c9ff2fdc93704a927193c7969feb6, type: 3}
+    grownSprite: {fileID: -1659716746575019983, guid: 2cf2146b347566c43ac039dc9126115f, type: 3}
