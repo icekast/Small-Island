@@ -23,7 +23,6 @@ public class Plant : MonoBehaviour
         spriteRenderer.sprite = initialSprite;
         spriteRenderer.sortingOrder = 1;
 
-        AdjustSpriteSizeToField(field);
         StartCoroutine(GrowToMaturity(growTime));
     }
 
@@ -62,32 +61,32 @@ public class Plant : MonoBehaviour
         parentField.ClearField();
         Destroy(gameObject);
     }
-    private void AdjustSpriteSizeToField(Field field)
-    {
-        if (spriteRenderer == null || spriteRenderer.sprite == null) return;
+    //private void AdjustSpriteSizeToField(Field field)
+    //{
+    //    if (spriteRenderer == null || spriteRenderer.sprite == null) return;
 
-        SpriteRenderer fieldRenderer = field.GetComponent<SpriteRenderer>();
-        if (fieldRenderer == null || fieldRenderer.sprite == null) return;
+    //    SpriteRenderer fieldRenderer = field.GetComponent<SpriteRenderer>();
+    //    if (fieldRenderer == null || fieldRenderer.sprite == null) return;
 
-        // Размеры спрайта поля и растения
-        Vector2 fieldSize = fieldRenderer.sprite.bounds.size;
-        Vector2 plantSize = spriteRenderer.sprite.bounds.size;
+    //    // Размеры спрайта поля и растения
+    //    Vector2 fieldSize = fieldRenderer.sprite.bounds.size;
+    //    Vector2 plantSize = spriteRenderer.sprite.bounds.size;
 
-        // Вычисляем масштаб
-        Vector3 newScale = new Vector3(
-            fieldSize.x / plantSize.x,
-            fieldSize.y / plantSize.y,
-            1f
-        );
+    //    // Вычисляем масштаб
+    //    Vector3 newScale = new Vector3(
+    //        fieldSize.x / plantSize.x,
+    //        fieldSize.y / plantSize.y,
+    //        1f
+    //    );
 
-        transform.localScale = newScale;
+    //    transform.localScale = newScale;
 
-        // Обновляем BoxCollider2D
-        BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
-        if (boxCollider != null)
-        {
-            boxCollider.size = spriteRenderer.sprite.bounds.size;
-            boxCollider.offset = spriteRenderer.sprite.bounds.center;
-        }
-    }
+    //    // Обновляем BoxCollider2D
+    //    BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+    //    if (boxCollider != null)
+    //    {
+    //        boxCollider.size = spriteRenderer.sprite.bounds.size;
+    //        boxCollider.offset = spriteRenderer.sprite.bounds.center;
+    //    }
+    //}
 }
