@@ -8947,6 +8947,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToPlace: {fileID: 3838381208314199826, guid: a8964511b2a86d84baedc942e9e98ef8, type: 3}
   tilemap: {fileID: 418277862}
+  player: {fileID: 2127516673}
+  maxDistance: 2
 --- !u!4 &1449744600
 Transform:
   m_ObjectHideFlags: 0
@@ -42669,7 +42671,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 16
   m_Sprite: {fileID: 7152930139536384079, guid: 5dfd29ad8293c1147a5e0746e8716664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
