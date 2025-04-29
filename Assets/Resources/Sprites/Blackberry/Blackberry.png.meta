@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Blackberry_0: 1617826241060244454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

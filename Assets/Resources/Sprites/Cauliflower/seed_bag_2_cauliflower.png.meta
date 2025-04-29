@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      seed_bag_2_cauliflower_0: -7564043788576702451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

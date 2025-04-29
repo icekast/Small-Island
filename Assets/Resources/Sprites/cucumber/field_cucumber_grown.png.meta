@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      field_cucumber_grown_0: 7189134256675518244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

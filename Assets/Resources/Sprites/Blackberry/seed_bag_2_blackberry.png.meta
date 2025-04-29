@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      seed_bag_2_blackberry_0: -4601817336834564609
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

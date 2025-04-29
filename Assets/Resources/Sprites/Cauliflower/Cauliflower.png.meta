@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cauliflower_0: -2529115437362917722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

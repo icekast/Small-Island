@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      seed_bag_2_cucumber_0: 7868053789226336056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
