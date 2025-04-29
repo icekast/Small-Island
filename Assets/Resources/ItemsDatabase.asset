@@ -211,3 +211,14 @@ MonoBehaviour:
     harvestAmount: 1
     plantSprite: {fileID: 3077280160104730672, guid: 042c9ff2fdc93704a927193c7969feb6, type: 3}
     grownSprite: {fileID: -1659716746575019983, guid: 2cf2146b347566c43ac039dc9126115f, type: 3}
+  - itemID: hoe
+    displayName: Hoe
+    type: 2
+    icon: {fileID: -5665277791673453610, guid: c53b209a5f6da144985d5ee34a1600d7, type: 3}
+    cost: 60
+    growTime: 0
+    plantPrefab: {fileID: 0}
+    harvestItemID: 
+    harvestAmount: 0
+    plantSprite: {fileID: 0}
+    grownSprite: {fileID: 0}

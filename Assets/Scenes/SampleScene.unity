@@ -42407,6 +42407,7 @@ MonoBehaviour:
   - strawberry_seed
   - watermelon_seed
   - carrot_seed
+  - hoe
   moneyText: {fileID: 0}
 --- !u!4 &2080434857
 Transform:

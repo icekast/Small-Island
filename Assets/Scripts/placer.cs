@@ -35,7 +35,11 @@ public class TilemapObjectPlacer : MonoBehaviour
             // Проверяем, можно ли разместить объект
             if (CanPlaceObject(cellCenter))
             {
-                Instantiate(prefabToPlace, cellCenter, Quaternion.identity);
+                Inventory inventory = FindObjectOfType<Inventory>();
+                if (inventory.GetSelectedItem().itemID == "hoe")
+                {
+                    Instantiate(prefabToPlace, cellCenter, Quaternion.identity);
+                }
             }
         }
     }
