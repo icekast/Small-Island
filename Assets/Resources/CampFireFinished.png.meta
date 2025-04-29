@@ -162,6 +162,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -684,7 +697,30 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CampFireFinished_0: 2568837401350651815
+      CampFireFinished_1: -5784929331180331738
+      CampFireFinished_10: 5789404013695292574
+      CampFireFinished_11: 925805934976160653
+      CampFireFinished_12: 730288572525777205
+      CampFireFinished_13: 5281378983055110741
+      CampFireFinished_14: 2726465622376489245
+      CampFireFinished_15: 8885844500899863825
+      CampFireFinished_16: -709205707082391123
+      CampFireFinished_17: -4734934450099583461
+      CampFireFinished_18: 6543498127657159952
+      CampFireFinished_19: 6205329886078459751
+      CampFireFinished_2: 6703503656626188089
+      CampFireFinished_20: -3500117419914139935
+      CampFireFinished_21: 4821429050875532118
+      CampFireFinished_22: -6956462604349466085
+      CampFireFinished_3: -836580246522959223
+      CampFireFinished_4: -6237535784788995661
+      CampFireFinished_5: 8740249354941347519
+      CampFireFinished_6: 2553746823598205273
+      CampFireFinished_7: 7920154339131280931
+      CampFireFinished_8: -2961174128460336156
+      CampFireFinished_9: 8447836514572629557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -165,6 +165,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -709,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bird_1_bluejay_0: 579768989013094130
+      bird_1_bluejay_1: 8426982487002608408
+      bird_1_bluejay_10: -6777632128967786385
+      bird_1_bluejay_11: 1018467962953089243
+      bird_1_bluejay_12: 2234342840039498610
+      bird_1_bluejay_13: -3400145772052238505
+      bird_1_bluejay_14: 4007518289946328533
+      bird_1_bluejay_15: 8139275464059577057
+      bird_1_bluejay_16: 3584464024495511750
+      bird_1_bluejay_17: 8433134427603255315
+      bird_1_bluejay_18: -6123869114517629331
+      bird_1_bluejay_19: 3420957430545337465
+      bird_1_bluejay_2: -5585450390411894022
+      bird_1_bluejay_20: -7143927266707882434
+      bird_1_bluejay_21: 8409770992635077903
+      bird_1_bluejay_22: 2067926564222633587
+      bird_1_bluejay_23: -4197512094730364018
+      bird_1_bluejay_3: 6693252523273740010
+      bird_1_bluejay_4: -4803803260050526452
+      bird_1_bluejay_5: 6536005913388000244
+      bird_1_bluejay_6: -382780267305871095
+      bird_1_bluejay_7: 1614667326460134546
+      bird_1_bluejay_8: -8412886026371323927
+      bird_1_bluejay_9: 2665156798142960957
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
