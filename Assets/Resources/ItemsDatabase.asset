@@ -214,7 +214,7 @@ MonoBehaviour:
   - itemID: hoe
     displayName: Hoe
     type: 2
-    icon: {fileID: -5665277791673453610, guid: c53b209a5f6da144985d5ee34a1600d7, type: 3}
+    icon: {fileID: 8834441656716106029, guid: 1f5f6ce0b97cd4b468c6477d063bd99b, type: 3}
     cost: 60
     growTime: 0
     plantPrefab: {fileID: 0}
