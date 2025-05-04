@@ -13,6 +13,9 @@ public class Movment : MonoBehaviour
     private Rigidbody2D rigidbody2d;
     private SpriteRenderer spriteRenderer;
     private Vector2 movement;
+    [Header("Sound Settings")]
+    public string footstepSound = "Footsteps";
+    private bool isMoving = false;
 
     void Start()
     {
@@ -24,6 +27,21 @@ public class Movment : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        // Проверка движения и управление звуком
+        bool wasMoving = isMoving;
+        isMoving = movement.magnitude > 0.1f;
+
+        if (isMoving && !wasMoving)
+        {
+            // Начали движение - запускаем звук
+            SoundManager.Instance.Play(footstepSound);
+        }
+        else if (!isMoving && wasMoving)
+        {
+            // Остановились - останавливаем звук
+            SoundManager.Instance.Stop(footstepSound);
+        }
     }
 
     private void FixedUpdate()
@@ -46,5 +64,14 @@ public class Movment : MonoBehaviour
         }
 
         rigidbody2d.MovePosition(rigidbody2d.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+    private void OnDisable()
+    {
+        // Останавливаем звук при деактивации объекта
+        if (isMoving)
+        {
+            SoundManager.Instance.Stop(footstepSound);
+            isMoving = false;
+        }
     }
 }

@@ -15,8 +15,8 @@ TagManager:
   - Player
   - Field
   - Plant
-  - 
-  - 
+  - treetop
+  - treetrunk
   - 
   - 
   - 
@@ -54,8 +54,14 @@ TagManager:
   - name: Items
     uniqueID: 2175132087
     locked: 0
+  - name: treetrunk
+    uniqueID: 2555774167
+    locked: 0
   - name: Player
     uniqueID: 182186613
+    locked: 0
+  - name: treetop
+    uniqueID: 3281197005
     locked: 0
   m_RenderingLayers:
   - Default

@@ -196,6 +196,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2508731}
   m_CullTransparentMesh: 1
+--- !u!1 &140134995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140134997}
+  - component: {fileID: 140134996}
+  m_Layer: 0
+  m_Name: gamecon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &140134996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140134995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfaa0960e44c4946bf10d37353bb5ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &140134997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140134995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 170.82808, y: 442.8537, z: -3.1220036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &190631455
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialCapacity: 20
   allowStacking: 1
-  money: 10000
+  money: 150
   onInventoryChanged:
     m_PersistentCalls:
       m_Calls:
@@ -8319,7 +8363,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000075f2db0a0532f28a8536612fb7e1a581831d5b41
+  m_ApplyToSortingLayers: 0000000075f2db0a0532f28a8536612fb7e1a581831d5b41cd1793c3d7045698
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -8504,6 +8548,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638697653}
   m_CullTransparentMesh: 1
+--- !u!1 &727574510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727574512}
+  - component: {fileID: 727574511}
+  m_Layer: 0
+  m_Name: sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &727574511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727574510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3816fb06af1e984b8f9aa692688d20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: fon
+    clip: {fileID: 8300000, guid: 502340cc81390fa42a175884879cc7dd, type: 3}
+    volume: 0.495
+    loop: 1
+    source: {fileID: 0}
+  - name: Footsteps
+    clip: {fileID: 8300000, guid: 851a4d86b18893249b97c5bee8a1ac71, type: 3}
+    volume: 0.796
+    loop: 1
+    source: {fileID: 0}
+--- !u!4 &727574512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727574510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 170.82808, y: 442.8537, z: -3.1220036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732195228
 GameObject:
   m_ObjectHideFlags: 0
@@ -42744,6 +42843,7 @@ MonoBehaviour:
   right: {fileID: -3303779423006393323, guid: 5dfd29ad8293c1147a5e0746e8716664, type: 3}
   back: {fileID: -4445699719359273135, guid: 5dfd29ad8293c1147a5e0746e8716664, type: 3}
   moveSpeed: 5
+  footstepSound: Footsteps
 --- !u!50 &2127516671
 Rigidbody2D:
   serializedVersion: 5
@@ -42812,8 +42912,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 182186613
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_Sprite: {fileID: 7152930139536384079, guid: 5dfd29ad8293c1147a5e0746e8716664, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -42899,7 +42999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47eb2d68bd76a5d4abf2ae9dd8f783f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundClip: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -42914,3 +43013,5 @@ SceneRoots:
   - {fileID: 1173910521}
   - {fileID: 732195229}
   - {fileID: 1449744600}
+  - {fileID: 140134997}
+  - {fileID: 727574512}
