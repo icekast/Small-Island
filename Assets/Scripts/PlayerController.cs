@@ -28,18 +28,15 @@ public class Movment : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        // Проверка движения и управление звуком
         bool wasMoving = isMoving;
         isMoving = movement.magnitude > 0.1f;
 
         if (isMoving && !wasMoving)
         {
-            // Начали движение - запускаем звук
             SoundManager.Instance.Play(footstepSound);
         }
         else if (!isMoving && wasMoving)
         {
-            // Остановились - останавливаем звук
             SoundManager.Instance.Stop(footstepSound);
         }
     }
@@ -67,7 +64,6 @@ public class Movment : MonoBehaviour
     }
     private void OnDisable()
     {
-        // Останавливаем звук при деактивации объекта
         if (isMoving)
         {
             SoundManager.Instance.Stop(footstepSound);

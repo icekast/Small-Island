@@ -6,15 +6,15 @@ public class ShopManager : MonoBehaviour
 {
     public string[] availableSeedIDs;
     [Header("UI Elements")]
-    public GameObject shopPanel; // Ваша панель магазина
-    public Button ShopButton; // Кнопка открытия магазина
+    public GameObject shopPanel;
+    public Button ShopButton;
 
     [Header("Основные компоненты")]
-    public Transform shopItemsContainer;     // Родительский объект для товаров (например, VerticalLayoutGroup)
-    public GameObject shopItemPrefab;        // Префаб UI-карточки товара (должен содержать ShopItemUI)
+    public Transform shopItemsContainer; 
+    public GameObject shopItemPrefab;
 
     [Header("Товары для продажи")]
-    public List<string> sellableItems;   // ID товаров, которые можно продавать
+    public List<string> sellableItems;
 
     [Header("Текст денег")]
     public Text moneyText;
@@ -24,16 +24,13 @@ public class ShopManager : MonoBehaviour
 
     void Start()
     {
-        // Скрываем панель при старте
         shopPanel.SetActive(false);
 
         GenerateShopItems();
 
-        // Назначаем обработчики кликов
         ShopButton.onClick.AddListener(OpenShop);
     }
 
-    // Создаёт элементы магазина на основе базы данных
     private void GenerateShopItems()
     {
         foreach (string itemID in sellableItems)
@@ -41,16 +38,13 @@ public class ShopManager : MonoBehaviour
             ItemsDatabase.ItemData itemData = ItemsDatabase.Instance.GetItemData(itemID);
             if (itemData == null) continue;
 
-            // Создаём UI-элемент товара
             GameObject itemGO = Instantiate(shopItemPrefab, shopItemsContainer);
             ShopItemUI itemUI = itemGO.GetComponent<ShopItemUI>();
 
-            // Настраиваем отображение
             itemUI.Setup(itemData, () => OnItemPurchased(itemID));
         }
     }
 
-    // Обработчик покупки
     private void OnItemPurchased(string itemID)
     {
         Inventory inventory = FindObjectOfType<Inventory>();

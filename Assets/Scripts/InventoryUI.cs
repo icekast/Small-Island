@@ -42,7 +42,6 @@ public class InventoryUI : MonoBehaviour
 
     private void SetupSlot(GameObject slotGO, InventoryItem item)
     {
-        // Настройка изображений и текста
         Image iconImage = slotGO.transform.Find("Icon")?.GetComponent<Image>();
         Text itemText = slotGO.GetComponentInChildren<Text>();
         Image background = slotGO.GetComponent<Image>();
@@ -58,7 +57,6 @@ public class InventoryUI : MonoBehaviour
             itemText.text = item.IsStackable ? $"{item.displayName} ({item.quantity})" : item.displayName;
         }
 
-        // Настройка кнопки
         Button button = slotGO.GetComponent<Button>();
         if (button != null)
         {
@@ -68,7 +66,6 @@ public class InventoryUI : MonoBehaviour
             });
         }
 
-        // Выделение выбранного предмета
         if (background != null)
         {
             var selected = inventory.GetSelectedItem();

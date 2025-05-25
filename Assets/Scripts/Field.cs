@@ -7,16 +7,13 @@ public class Field : MonoBehaviour
 
     public bool PlantSeed(string seedItemID)
     {
-        // Проверяем условия посадки
         if (isPlanted) return false;
 
         Inventory inventory = FindObjectOfType<Inventory>();
         if (inventory == null) return false;
 
-        // Проверяем наличие семян в инвентаре
         if (!inventory.HasItem(seedItemID)) return false;
 
-        // Получаем данные из базы
         ItemsDatabase.ItemData plantData = ItemsDatabase.Instance.GetItemData(seedItemID);
         if (plantData == null || plantData.type != ItemType.Seed || plantData.plantPrefab == null)
         {
@@ -24,7 +21,6 @@ public class Field : MonoBehaviour
             return false;
         }
 
-        // Создаем растение
         GameObject plantObj = Instantiate(
             plantData.plantPrefab,
             transform.position,
@@ -35,7 +31,6 @@ public class Field : MonoBehaviour
         currentPlant = plantObj.GetComponent<Plant>();
         if (currentPlant != null)
         {
-            // Инициализируем растение
             currentPlant.Initialize(
                 field: this,
                 initialSprite: plantData.plantSprite,
@@ -44,8 +39,6 @@ public class Field : MonoBehaviour
                 harvestItemID: plantData.harvestItemID,
                 harvestAmount: plantData.harvestAmount
             );
-
-            // Удаляем семя из инвентаря
             inventory.RemoveItem(seedItemID, 1);
 
             isPlanted = true;
@@ -61,8 +54,6 @@ public class Field : MonoBehaviour
         isPlanted = false;
         currentPlant = null;
     }
-
-    // Для взаимодействия через клик
     private void OnMouseDown()
     {
         Inventory inventory = FindObjectOfType<Inventory>();

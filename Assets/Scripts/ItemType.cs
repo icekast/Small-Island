@@ -1,8 +1,8 @@
 public enum ItemType
 {
-    Seed,    // Семена для посадки
-    Crop,    // Урожай (например, яблоки, пшеница)
-    Tool,    // Инструменты (лопата, топор)
-    Resource, // Ресурсы (дерево, камень)
+    Seed,
+    Crop,
+    Tool,
+    Resource,
     Food
 }

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target; // Объект, за которым следует камера (игрок)
-    public float smoothSpeed = 0.125f; // Плавность движения
-    public Vector3 offset; // Смещение камеры относительно игрока
+    public Transform target;
+    public float smoothSpeed = 0.125f;
+    public Vector3 offset;
 
     void LateUpdate()
     {

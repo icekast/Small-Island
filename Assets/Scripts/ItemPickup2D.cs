@@ -8,23 +8,19 @@ public class ItemPickup2D : MonoBehaviour
 
     private void Awake()
     {
-        // Гарантируем, что коллайдер - триггер
         GetComponent<Collider2D>().isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Проверяем, что столкнулись с игроком
         if (!other.CompareTag("Player")) return;
 
-        // Получаем инвентарь у игрока
         Inventory inventory = FindObjectOfType<Inventory>();
         if (inventory != null)
         {
-            // Пытаемся добавить предмет
             if (inventory.AddItem(itemID, amount))
             {
-                Destroy(gameObject); // Уничтожаем предмет при успехе
+                Destroy(gameObject); 
             }
         }
     }

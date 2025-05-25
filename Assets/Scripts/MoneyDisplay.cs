@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI; // Для стандартного Text
+using UnityEngine.UI;
 
 public class MoneyDisplay : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory; // Ссылка на Inventory
-    [SerializeField] private Text moneyText;      // Ссылка на стандартный UI Text
+    [SerializeField] private Inventory inventory;
+    [SerializeField] private Text moneyText;
 
     private void Start()
     {
@@ -20,12 +20,11 @@ public class MoneyDisplay : MonoBehaviour
             return;
         }
 
-        // Обновляем текст при старте
         UpdateMoneyText();
     }
 
     public void UpdateMoneyText()
     {
-        moneyText.text = $"Money: {inventory.money}"; // Формат текста
+        moneyText.text = $"Money: {inventory.money}";
     }
 }

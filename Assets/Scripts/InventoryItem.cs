@@ -3,7 +3,6 @@ using UnityEngine;
 [System.Serializable]
 public class InventoryItem
 {
-    // Базовые свойства
     public string itemID;
     public string displayName;
     public ItemType type;
@@ -11,14 +10,12 @@ public class InventoryItem
     public int quantity;
     public int cost;
 
-    // Свойства для растений
     public float growTime;
     public GameObject plantPrefab;
     public string harvestItemID;
     public int harvestAmount;
     public Sprite plantSprite;
 
-    // Вычисляемые свойства
     public bool IsStackable => type != ItemType.Tool;
     public bool IsSeed => type == ItemType.Seed;
     public int MaxStackSize => IsStackable ? 99 : 1;
